@@ -1,0 +1,3 @@
+# Ignore all node_modules folders inside subdirectories
+node_modules/
+venv
