@@ -44,14 +44,24 @@ fs.createReadStream('house_prices.csv')
 
     // Calculate evaluation metric (MSE)
     let mse = 0.0;
+    let ss_total = 0.0;    // Total sum of squares
+    let ss_residual = 0.0; // Residual sum of squares
+    const mean_y_test = y_test.reduce((sum, val) => sum + val, 0) / y_test.length; // Mean of y_test
+
     y_pred.forEach((value, index) => {
         let residual = y_test[index] - value;
         residual = Math.pow(residual, 2);
         mse += residual;
+
+        // for R^2
+        ss_residual += Math.pow(y_test[index] - value, 2);
+        ss_total += Math.pow(y_test[index] - mean_y_test, 2);
     });
 
     mse = mse / y_test.length;
+    const r2 = 1 - (ss_residual/ ss_total);
     console.log(`Computed MSE: ${mse.toFixed(2)}`);
+    console.log(`Computed R²: ${r2.toFixed(4)}`); // Print R²
 
     // --------------------------------
     // PLOT 1: Training Data Plot

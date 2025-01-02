@@ -5,7 +5,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
-
+from sklearn.metrics import mean_squared_error, r2_score
 # get the data
 dataset = pd.read_csv('house_prices.csv')
 
@@ -40,3 +40,13 @@ plt.title("House prices vs. Sq feet (Test Set)")
 plt.xlabel("House size (in sq ft)")
 plt.ylabel("House prices (in $)")
 plt.show()
+
+# evaluate by MSE
+
+# Calculate Mean Squared Error
+mse = mean_squared_error(y_test, y_pred)
+print(f"Mean Squared Error (MSE): {mse:.2f}")
+
+# Calculate R-squared value
+r2 = r2_score(y_test, y_pred)
+print(f"R-squared (R²): {r2:.4f}")
