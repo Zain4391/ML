@@ -14,7 +14,6 @@ ML/
 |   |-- SLR.js (Node.js script)
 |   |-- README.md (This file)
 |   |-- package.json
-|   |-- .gitignore
 |-- .gitignore
 ```
 
@@ -97,5 +96,5 @@ git push origin <branch-name>
 ---
 
 ## **Contact and Support**
-For questions, contact the project maintainer at **your-email@example.com**.
+For questions, contact the project maintainer at **manutdfast91@gmail.com**.
 
